@@ -19,3 +19,4 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [UserController::class, 'allUser'] )->name('allUser');
+Route::post('/add-user', [UserController::class, 'addUser'] )->name('addUser');

@@ -67,15 +67,12 @@
                                                 <td>{{ $singleUserInfo->name }}</td>
                                                 <td>{{ $singleUserInfo->email }}</td>
                                                 <td>
-                                                    <button type="button" class="btn btn-success">Add</button>
+                                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">Add</button>
                                                     <button type="button" class="btn btn-info">Edit</button>
                                                     <button type="button" class="btn btn-danger">Delete</button>
                                                 </td>
                                             </tr>
                                         @endforeach
-                                        
-                                        
-                                        
                                     </tbody>
                                 </table>
                                
@@ -83,6 +80,42 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                    <form action="{{ route('addUser') }}" method="POST">
+                        @csrf
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                            <div class="form-control mb-2">
+                                <label for="">Name: </label>
+                                <input type="text" name='name'>
+                            </div>
+                            <div class="form-control mb-2">
+                                <label for="">Email: </label>
+                                <input type="email" name='email'>
+                            </div>
+                            <div class="form-control mb-2">
+                                <label for="">Password: </label>
+                                <input type="text" name='password'>
+                            </div>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+                <!-- End Modal -->
 
                 <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
                     <div class="text-center text-sm text-gray-500 sm:text-left">
